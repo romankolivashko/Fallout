@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Fallout.Models.Shelter
+
+<h4>Add a new shelter</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  <input type="submit" value="Add new shelter" />
+}
+<p>@Html.ActionLink("Show all shelters", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

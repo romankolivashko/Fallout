@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Fallout.Models.Survivor
+
+<h2>Edit</h2>
+
+<h4>Edit this task: @Html.DisplayFor(model => model.Description)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.SurvivorId)
+
+  @Html.LabelFor(model => model.Description)
+  @Html.EditorFor(model => model.Description)
+
+  @Html.LabelFor(model => model.Arrived)
+  @Html.EditorFor(model => model.Arrived)
+
+  @Html.Label("Select Shelter")
+  @Html.DropDownList("ShelterId")
+  @Html.LabelFor(model => model.Completed)
+  @Html.CheckBoxFor(model => model.Completed)
+  <input type="submit" value="Save"/>
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

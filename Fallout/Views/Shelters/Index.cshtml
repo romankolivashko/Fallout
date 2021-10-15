@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Fallout.Models;
+
+<h1>Shelters</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No shelters have been added yet!</h3>
+} 
+
+<ul class="list-group">
+  @foreach(Shelter shelter in Model)
+  {
+    <li class="list-group-item">@Html.ActionLink($"{shelter.Name}", "Details", new { id = shelter.ShelterId })</li>
+  }
+</ul>
+
+<button>@Html.ActionLink("Add new shelter", "Create")</button>
+<button>@Html.ActionLink("Home", "Index", "Home")</button>

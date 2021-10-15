@@ -1,0 +1,36 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Fallout.Models.Survivor
+
+<h2>Survivor Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
+<p>Enrolled: @Model.Arrived.ToString("d")</p>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This survivor does not belong to any shelters.</p>
+}
+else
+{
+  <h4>Shelters this survivor belongs to:</h4>
+    <ul>
+    @foreach(var join in Model.JoinEntities)
+    {
+      <li class="list-group-item">@join.Shelter.Name</li>
+      @using (Html.BeginForm("DeleteShelter", "Survivors"))
+      {
+        @Html.Hidden("joinId", @join.ShelterSurvivorId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+    </ul>
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Survivor", "Edit", new { id = Model.SurvivorId })</p>
+<p>@Html.ActionLink("Delete Survivor", "Delete", new { id = Model.SurvivorId })</p>
+<p>@Html.ActionLink("Add a Shelter", "AddShelter", new { id = Model.SurvivorId })</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

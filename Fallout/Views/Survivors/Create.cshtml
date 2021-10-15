@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Fallout.Models.Survivor
+
+<h4>Add new survivor</h4>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)
+
+    @Html.LabelFor(model => model.Arrived)
+    @Html.TextBoxFor(model => model.Arrived, new {type = "date"})
+
+    @Html.Label("Select Shelter")
+    @Html.DropDownList("ShelterId")
+    @* @Html.HiddenFor(model => model.Completed) *@
+    <input type="submit" value="Add new survivor" class="btn btn-default"/>
+}
+<p>@Html.ActionLink("Show all survivors", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

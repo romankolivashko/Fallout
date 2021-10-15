@@ -15,6 +15,9 @@ div#footer {
 
 .jumbotron {
   width: auto;
+  background-color: transparent;
+  /* border: transparent; */
+  border-color: 1px, #CCC;
 }
 
 body {
@@ -29,9 +32,9 @@ body {
 }
 
 .container {
-  text-align: center;
+  text-align: left;
   font-size: 20px;
-  margin-top: 200px;
+  margin-top: 110px;
   background-color: transparent;
   border: transparent;
   margin-bottom: 15px;

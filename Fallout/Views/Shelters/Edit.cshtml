@@ -4,15 +4,15 @@
 
 @model Fallout.Models.Shelter
 
-<h2>Edit</h2>
+<h2>Edit Record</h2>
 
-<h4>Edit this category: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Edit @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.ShelterId)
 
-  @Html.LabelFor(model => model.Name)
+  @Html.LabelFor(model => model.Name) <span> &nbsp; </span>
   @Html.EditorFor(model => model.Name)
 
   <input type="submit" value="Save" />
